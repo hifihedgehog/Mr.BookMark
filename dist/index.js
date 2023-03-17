@@ -44,12 +44,10 @@ client.on("ready", (client) => {
 });
 const bookmarkCmd = new Discord.ContextMenuCommandBuilder().setName("Bookmark").setType(Discord.ApplicationCommandType.Message);
 const rest = new REST().setToken(`${process?.env?.BOT_TOKEN}`);
-rest.put(Routes.applicationCommands("837617682345623572"), { body: [bookmarkCmd.toJSON()] });
+rest.put(Routes.applicationCommands("1086433998303154276"), { body: [bookmarkCmd.toJSON()] });
 client.on("interactionCreate", async (interaction) => {
     // if (!interaction.isCommand()) return;
     if (interaction.isContextMenuCommand() && interaction.commandName === "Bookmark") {
-        if (interaction?.channel?.type !== Discord.ChannelType.GuildText)
-            return;
         await interaction.deferReply({ ephemeral: true });
         const message = await interaction.channel?.messages.fetch(interaction.targetId);
         const attachments = message?.attachments;
