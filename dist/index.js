@@ -3,12 +3,6 @@ import Discord, { Routes, REST } from "discord.js";
 import figlet from "figlet";
 import pc from "picocolors";
 import ms from "ms";
-import express from "express";
-const server = express();
-server.get("/", (req, res) => {
-    res.send("Hello World");
-});
-server.listen(80, "0.0.0.0");
 const client = new Discord.Client({
     allowedMentions: { parse: [Discord.AllowedMentionsTypes.User], repliedUser: true },
     intents: [
